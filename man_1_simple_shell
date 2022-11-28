@@ -1,0 +1,46 @@
+.\" Manpage for shell.
+.TH shell               Linux programmer's Manual               shell
+.SH NAME
+shell \- command basic shell.
+.SH SYNOPSIS
+#include "main.h"
+
+int _printf(const char *format, ...)
+.SH DESCRIPTION
+The function _printf produces output according to a format to stdout.
+
+This function writes the output under the control of a format string that specifies how subsequent arguments are converted for output.
+
+.SH Conversion specifiers
+%c The argument is converted to char, and the resulting character is written. 
+.TP
+%s The argument is expected to be a pointer to an array of character type (pointer to a string).  
+.TP
+%% It prints one "%".
+.TP
+%d, %i The int argument is converted to signed decimal.
+.SH RETURN VALUE
+Upon successful return, these function return the number of character printed.
+.TP
+If an output error is encountered, -1 is returned.
+.SH EXAMPLES
+To print an int:
+
+#include "main.h"
+
+int a = 1;
+.TP
+_printf("%d", a);
+.TP
+.TP
+To print a string:
+.TP
+#include "main.h"
+.TP
+char *str = "Hello";
+.TP
+_printf(%s, str);
+
+.SH AUTHORS
+Written by Adrian Belen and Matias Mancini.
+

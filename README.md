@@ -15,6 +15,7 @@ Working team:
 - [Dependencies](#dependencies)
 - [Description](#description)
 - [Flowchart](#flowchart)
+- [Execute](#execute)
 
 
 
@@ -34,6 +35,11 @@ Formatted version of the ````sh shell```` for [Holberton School](https://holbert
 
 This is a version of [shell](https://www.linux.org/) for [holbertonschool-simple_shell](https://github.com/search?q=holbertonschool-simple_shell) project.
 The program works like the ````sh```` shell with all the functionalities that it provides and a primitive interface.
+
+🔼 [Back to the top](#Content)
+## 🔹 Execute
+````./hsh````
+
 
 🔼 [Back to the top](#Content)
 ## 🔸 Flowchart

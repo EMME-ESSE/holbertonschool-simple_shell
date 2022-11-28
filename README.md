@@ -20,14 +20,14 @@ Working team:
 
 ## shell
 
-Formatted version of the ````sh shell```` for [Holberton School](https://holbertonschool.uy).
+:computer: Formatted version of the ````sh shell```` for [Holberton School](https://holbertonschool.uy).
 
 [Back to the top](#Content)
 
 ## Dependencies
 
 * The ````Shell```` function was coded on an Ubuntu 20.04 LTS machine with ````gcc```` version 4.8.4.
-* The gcc code to compile is: ````gcc -Wall -Werror -Wextra -pedantic -std=gnu89````
+* The gcc code to compile is: ````gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh````
 
 [Back to the top](#Content)
 ## Description

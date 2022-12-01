@@ -9,7 +9,7 @@ int prompt(void)
 {
 	char *prompt = "($) ";
 
-	write(STDOUT_FILENO, prompt, _strlen(prompt));
+	write(STDOUT_FILENO, prompt, strlen(prompt));
 	return (EXIT_SUCCESS);
 }
 

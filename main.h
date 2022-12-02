@@ -23,6 +23,6 @@ int fun_cd(char **argv);
 int fun_env(char**);
 int fun_exit(char **argv);
 int _builtin_n();
-int fun_execute(char **argv);
+int __launch(char **argv);
 
 #endif

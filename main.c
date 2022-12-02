@@ -55,7 +55,7 @@ int main(int ac, char **argv)
 		}
 		argv[i] = NULL;
         /* execute the command */
-		execmd(argv);
+		__launch(argv);
 	}
 
 

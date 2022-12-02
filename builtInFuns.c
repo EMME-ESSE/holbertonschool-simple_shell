@@ -31,6 +31,6 @@ int fun_cd(char **argv)
 int fun_exit(char **argv)
 {
 	if (argv)
-		return (0);
-	return (0);
+		exit(EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }

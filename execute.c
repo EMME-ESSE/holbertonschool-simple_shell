@@ -1,6 +1,6 @@
 #include "main.h"
 
-int fun_execute(char **argv)
+int __launch(char **argv)
 {
 	int i, funCnt;
 

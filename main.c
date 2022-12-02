@@ -54,7 +54,7 @@ int main(int ac, char **argv)
 			token = strtok(NULL, delim);
 		}
 		argv[i] = NULL;
-        /* execute the command */
+        /* launch the handler, it checks for builtins before executing */
 		__launch(argv);
 	}
 

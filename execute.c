@@ -1,18 +1,32 @@
-/** gotta finish this later */
-int lsh_execute(char **args)
+#include "main.h"
+
+int fun_execute(char **argv)
 {
-  int i;
+	int i, funCnt;
 
-  if (args[0] == NULL) {
-    // An empty command was entered.
-    return 1;
-  }
+	char *builtin_str[] = {
+		"cd",
+		"exit"
+	};
 
-  for (i = 0; i < lsh_num_builtins(); i++) {
-    if (strcmp(args[0], builtin_str[i]) == 0) {
-      return (*builtin_func[i])(args);
-    }
-  }
+	int (*builtin_func[])(char **) = {
+		&fun_cd,
+		&fun_exit
+	};
 
-  return lsh_launch(args);
+	funCnt = (sizeof(builtin_str) / sizeof(char *));
+
+	if (argv[0] == NULL)
+	{ /** this handles empty arguments */
+		return (1);
+	}
+
+	for (i = 0; i < funCnt; i++)
+	{
+		if (strcmp(argv[0], builtin_str[i]) == 0)
+		{
+			return ((*builtin_func[i])(argv));
+		}
+	}
+	return (execmd(argv));
 }

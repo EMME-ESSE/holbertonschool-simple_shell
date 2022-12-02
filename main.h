@@ -18,6 +18,11 @@ extern char **environ;
 #include <sys/wait.h>
 
 int exit_fun(void);
-void execmd(char **argv);
+int execmd(char **argv);
+int fun_cd(char **argv);
+int fun_env(char**);
+int fun_exit(char **argv);
+int _builtin_n();
+int fun_execute(char **argv);
 
 #endif

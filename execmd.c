@@ -1,5 +1,5 @@
 #include "main.h"
-void execmd(char **argv)
+int execmd(char **argv)
 {		/**wpid is just here to catch the stack before its destroyed*/
 	pid_t pid;
         char *command = NULL;
@@ -13,7 +13,7 @@ void execmd(char **argv)
 	/** Remember fork returns twice, 1 for parent, 0 for child*/
 	if (pid == 0)
 	{
-		if (execvp(command, argv) == -1)
+		if (execvp(command, argv) == -1) /** gotta change this execvp for an execve <<<<<<<<<<*/
 			perror("42 Error: ");
 		exit(EXIT_FAILURE);
 	}
@@ -27,4 +27,5 @@ void execmd(char **argv)
 			/** Use the wifexited and wifsignaled to check if child
 			was exited or cancelled. so parent can stop waiting*/
 	}
+	return (0);
 }

@@ -1,5 +1,6 @@
 #include "main.h"
-int main(int ac, char **argv)
+/*Main shell program*/
+iint main(int ac, char **argv)
 {
 	char *prompt = "(hshell) $ ";
 	char *line1 = NULL, *line2 = NULL;

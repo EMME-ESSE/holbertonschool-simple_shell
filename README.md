@@ -43,7 +43,7 @@ The program works like the ````sh```` shell with all the functionalities that it
 
 🔼 [Back to the top](#Content)
 ## 🔸 Flowchart
-![Flowcharts](https://user-images.githubusercontent.com/113596153/201496100-eddafe02-e590-4617-aeb7-685bbb6bcb41.jpeg)
+![Flowcharts](https://user-images.githubusercontent.com/17550413/205963557-e5b787f2-826d-43b5-b49d-5eb1431cff29.png)
 
 🔼 [Back to the top](#Content)
 

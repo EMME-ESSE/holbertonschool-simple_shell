@@ -1,9 +1,5 @@
 #include "main.h"
-<<<<<<< HEAD
-void execmd(char **argv)
-=======
 int execmd(char **argv)
->>>>>>> e3c6ceb09262462fc343eb65f0207208432e1d8d
 {		/**wpid is just here to catch the stack before its destroyed*/
 	pid_t pid;
         char *command = NULL;
@@ -17,11 +13,7 @@ int execmd(char **argv)
 	/** Remember fork returns twice, 1 for parent, 0 for child*/
 	if (pid == 0)
 	{
-<<<<<<< HEAD
-		if (execvp(command, argv) == -1)
-=======
 		if (execvp(command, argv) == -1) /** gotta change this execvp for an execve <<<<<<<<<<*/
->>>>>>> e3c6ceb09262462fc343eb65f0207208432e1d8d
 			perror("42 Error: ");
 		exit(EXIT_FAILURE);
 	}

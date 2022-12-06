@@ -1,7 +1,5 @@
 #ifndef MAIN_H
 #define MAIN_H
-<<<<<<< HEAD
-=======
 
 #define PROMPT "$ "
 #define PROPERTY_SEPARATROR '='
@@ -9,7 +7,6 @@
 #define COMMAND_LINE_SEPARATROR "\n\t\r "
 #define END_STRING_CHAR '\0'
 
->>>>>>> e3c6ceb09262462fc343eb65f0207208432e1d8d
 extern char **environ;
 
 #include <stdio.h>
@@ -27,8 +24,5 @@ int fun_env(char**);
 int fun_exit(char **argv);
 int _builtin_n();
 int __launch(char **argv);
-<<<<<<< HEAD
-=======
 
->>>>>>> e3c6ceb09262462fc343eb65f0207208432e1d8d
 #endif

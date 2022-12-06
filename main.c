@@ -52,11 +52,19 @@ iint main(int ac, char **argv)
 			token = strtok(NULL, delim);
 		}
 		argv[i] = NULL;
-        /* execute the command */
-		execmd(argv);
+        /* launch the handler, it checks for builtins before executing */
+		__launch(argv);
 	}
+<<<<<<< HEAD
     /* free up allocated memory */
 	free(line2);
 	free(line1);
+=======
+
+
+    /* free up allocated memory */
+	free(lineptr_copy);
+	free(lineptr);
+>>>>>>> e3c6ceb09262462fc343eb65f0207208432e1d8d
 	return (0);
 }

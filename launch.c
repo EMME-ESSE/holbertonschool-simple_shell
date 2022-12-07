@@ -14,6 +14,7 @@ int __launch(char **argv)
 		&fun_exit
 	};
 
+	/** this just a counter, counts the n of builtins*/
 	funCnt = (sizeof(builtin_str) / sizeof(char *));
 
 	if (argv[0] == NULL)
@@ -23,8 +24,8 @@ int __launch(char **argv)
 
 	for (i = 0; i < funCnt; i++)
 	{
-		if (strcmp(argv[0], builtin_str[i]) == 0)
-		{
+	  if (strcmp(argv[0], builtin_str[i]) == 0) /** compares argument to fun names */
+	    {/** executes the fun */
 			return ((*builtin_func[i])(argv));
 		}
 	}

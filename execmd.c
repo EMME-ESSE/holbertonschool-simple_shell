@@ -1,6 +1,5 @@
 #include "main.h"
-#define COMBUFF 128
-#define PATBUFF 256
+
 /**
  * execmd - attempts to run a program
  *
@@ -10,8 +9,8 @@
  *
  * Description: execmd will automatically look for programs in every folder
  * defined within the $PATH variable, one by one. The max size of the PATH
- * variable is currently 256 bytes
- * The max size for the command is currently 128 bytes.
+ * variable is currently 256 bytes (PATBUFF 256)
+ * The max size for the command is currently 128 bytes. (COMBUFF 128)
  */
 int execmd(char **argv)
 {
@@ -25,7 +24,7 @@ int execmd(char **argv)
 
 	if (pid == 0)
 	{/**get $PATH and tokenize */
-		rawPathz = getenv("PATH");
+		rawPathz = _getenv();
 		*pathz = strtok(rawPathz, ":");
 		for (; *pathz != NULL ;)
 		{/**check if program is in any of the PATHs */
@@ -50,5 +49,6 @@ int execmd(char **argv)
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
+	free(rawPathz);
 	return (0);
 }

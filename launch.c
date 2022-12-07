@@ -1,5 +1,11 @@
 #include "main.h"
-
+/**
+ * __launch - attempts to run a builtin, if it fails runs a command
+ *
+ * @argv: argument and flags
+ *
+ * Return: Builtin fun || command fun
+ */
 int __launch(char **argv)
 {
 	int i, funCnt;
@@ -23,9 +29,9 @@ int __launch(char **argv)
 	}
 
 	for (i = 0; i < funCnt; i++)
-	{
-	  if (strcmp(argv[0], builtin_str[i]) == 0) /** compares argument to fun names */
-	    {/** executes the fun */
+	{/** compares argument to fun names */
+		if (strcmp(argv[0], builtin_str[i]) == 0)
+		{/** executes the fun */
 			return ((*builtin_func[i])(argv));
 		}
 	}

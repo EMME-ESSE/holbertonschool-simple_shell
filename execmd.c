@@ -1,31 +1,48 @@
 #include "main.h"
+#define BUFF 128
+/**
+ * execmd - attempts a system call
+ *
+ * args: name of program to execute
+ *
+ * Return: 0
+ */
 int execmd(char **argv)
-{		/**wpid is just here to catch the stack before its destroyed*/
+{
 	pid_t pid;
-        char *command = NULL;
 	/**This var will check if child is finished to call exit*/
 	int status;
+	char *rawPathz = NULL, *pathz[BUFF], newpath[BUFF];
+	int i;
 
-	/**>Fork the function first and save the PID so the parent can wait*/
 	pid = fork();
-	command = argv[0]; /**>This is always true */
 
-	/** Remember fork returns twice, 1 for parent, 0 for child*/
 	if (pid == 0)
-	{
-		if (execvp(command, argv) == -1) /** gotta change this execvp for an execve <<<<<<<<<<*/
-			perror("42 Error: ");
-		exit(EXIT_FAILURE);
-	}
-	else if (pid < 0) /** If <0, something went wrong forking*/
-		perror("43 Error: ");
-	else /** if it isnt 0 or -1 then the parent waits for child to die*/
+	  {/**get $PATH and tokenize */
+	    rawPathz = getenv("PATH");
+	    *pathz = strtok(rawPathz, ":");
+	    for (;*pathz != NULL;)
+	      {/**check if program is in any of the PATHs */
+		for (i = 0; i < BUFF; i++)
+		  newpath[i] = 0;
+		strcpy(newpath, *pathz); /**build path */
+		strcat(newpath, "/");
+		strcat(newpath, argv[0]); /**add arg and exec */
+		execve((const char*)newpath, argv, NULL);
+		*pathz = strtok(NULL, ":"); /**get next PATH if exec failed*/
+		if (!*pathz) /**if no path left, throw error*/
+		  break;
+	      }
+	    perror("Error");
+	    exit(EXIT_FAILURE);
+	  }
+	else if (pid < 0)
+		perror("Error");
+	else
 	{ /** use a do here so it runs once before checking */
 		do {
 			pid = waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-			/** Use the wifexited and wifsignaled to check if child
-			was exited or cancelled. so parent can stop waiting*/
 	}
 	return (0);
 }

@@ -47,7 +47,7 @@ int execmd(char **argv)
 	else
 	{ /** use a do here so it runs once before checking */
 		do {
-			pid = waitpid(pid, &status, WUNTRACED);
+			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 	return (0);

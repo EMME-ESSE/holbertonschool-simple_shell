@@ -50,7 +50,7 @@ The program works like the ````sh```` shell with all the functionalities that it
 
 
 > Non interactive shell
-[Tests](https://user-images.githubusercontent.com/17550413/206505384-23e8043a-f91c-497a-a70e-ee36ec5df34e.png)
+
 
 
 

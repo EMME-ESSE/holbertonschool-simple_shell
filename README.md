@@ -54,7 +54,7 @@ The program works like the ````sh```` shell with all the functionalities that it
 > Non interactive shell
 
 
-![Tests](src="https://user-images.githubusercontent.com/17550413/206511844-a4134aa6-e442-483c-b781-d0662f3f80b3.png)
+![Tests](https://user-images.githubusercontent.com/17550413/206511844-a4134aa6-e442-483c-b781-d0662f3f80b3.png)
 
 
 

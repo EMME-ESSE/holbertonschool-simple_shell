@@ -13,12 +13,20 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 
-int exit_fun(void);
+/** Shell functions */
 int execmd(char **argv);
-int fun_cd(char **argv);
-int fun_env(char **);
-int fun_exit(char **argv);
 int __launch(char **argv);
+/** Built-in functions */
+int fun_cd(char **argv);
+int fun_exit(char **argv);
+
+/** Environment handlers */
 char *_getenv(void);
+
+/** Strings */
+int _strlen(char *string);
+char *_strncpy(char *dest, char *src, int n);
+int _strcmp(char *s1, char *s2);
+char *_strncat(char *dest, char *src, int n);
 
 #endif

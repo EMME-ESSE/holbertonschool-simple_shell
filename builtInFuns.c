@@ -10,7 +10,7 @@ int fun_cd(char **argv)
 {
 	if (argv[1] == NULL)
 	{
-		if (chdir("/") != 0)
+		if (chdir(_strcut("HOME=", _getenv("HOME"))) != 0)
 		{
 			perror("Error");
 			return (-1);

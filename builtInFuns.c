@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
  * fun_cd - executes the chdir function with a given parameter
  *
  * @argv: argument for chdir
- * return: 0 on success, -1 on error.
+ *
+ * Return: 0 on success, -1 on error.
  */
 int fun_cd(char **argv)
 {
@@ -50,8 +52,11 @@ int fun_cd(char **argv)
 }
 
 /**
- * fun exit - exits shell
- * return: always 0
+ * fun_exit - exits shell
+ *
+ * @argv: catches last argument
+ *
+ * Return: nothing
  */
 int fun_exit(char **argv)
 {

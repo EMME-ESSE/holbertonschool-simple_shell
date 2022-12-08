@@ -14,6 +14,8 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 
+extern char **environ;
+
 /** Shell functions */
 int execmd(char **argv);
 int __launch(char **argv);

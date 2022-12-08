@@ -21,7 +21,7 @@ int fun_cd(char **argv);
 int fun_exit(char **argv);
 
 /** Environment handlers */
-char *_getenv(void);
+char *_getenv(char *envy);
 
 /** Strings */
 int _strlen(char *string);

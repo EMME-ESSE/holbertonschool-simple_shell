@@ -24,7 +24,7 @@ int execmd(char **argv)
 
 	if (pid == 0)
 	{/**get $PATH and tokenize */
-		rawPathz = _getenv();
+		rawPathz = _getenv("PATH");
 		*pathz = strtok(rawPathz, ":");
 		for (; *pathz != NULL ;)
 		{/**check if program is in any of the PATHs */

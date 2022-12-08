@@ -45,12 +45,12 @@ The program works like the ````sh```` shell with all the functionalities that it
 🔼 [Back to the top](#Content)
 ## 🔹 Tests
 > Interactive shell
-![Tests](img width="518" src="https://user-images.githubusercontent.com/17550413/206456780-a3344994-b696-4cc3-9043-e4606145ae92.png")
+![Tests](img width=518 src=https://user-images.githubusercontent.com/17550413/206456780-a3344994-b696-4cc3-9043-e4606145ae92.png)
 
 
 
 > Non interactive shell
-[Tests](img width="518" src="https://user-images.githubusercontent.com/17550413/206505384-23e8043a-f91c-497a-a70e-ee36ec5df34e.png")
+[Tests](img width=518 src=https://user-images.githubusercontent.com/17550413/206505384-23e8043a-f91c-497a-a70e-ee36ec5df34e.png)
 
 
 

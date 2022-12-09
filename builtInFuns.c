@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * fun_cd - executes the chdir function with a given parameter
  *
@@ -9,10 +8,10 @@
  */
 int fun_cd(char **argv)
 {
-	char *env = NULL, cwd[CWDBUFF], owd[CWDBUFF], *temp = NULL;
+	char *env = NULL, cwd[CWDBUFF], *owd = NULL;
 
-	/*save the cwd, add this to main to call it only once */
 	getcwd(cwd, CWDBUFF);
+	owd = _strcut("OLDPWD=", _getenv("OLDPWD"));
 
 	if (argv[1] == NULL)
 	{
@@ -28,17 +27,12 @@ int fun_cd(char **argv)
 	}
 	else if (_strcmp(argv[1], "-") == 0)
 	{
-		temp = malloc(sizeof(owd));
-		_strcpy(temp, owd);
-		if (chdir(temp) != 0)
+		if (chdir(owd) != 0)
 		{
-			perror("44 Error");
-			printf("owd: %s\n", owd);
-			printf("temp: %s\n", temp);
-			free (temp);
+			perror("Error");
+			free(owd);
 			return (-1);
 		}
-		free (temp);
 	}
 	else
 	{
@@ -48,12 +42,7 @@ int fun_cd(char **argv)
 			return (-1);
 		}
 	}
-	if (_strcmp(cwd, owd) != 0)
-	{
-		_strcpy(owd, cwd);
-		getcwd(cwd, CWDBUFF);
-	}
-	printf("cwd: %s\n owd: %s\n", cwd, owd);
+	free(owd);
 	return (0);
 }
 

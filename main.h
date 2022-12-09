@@ -25,6 +25,7 @@ int fun_exit(char **argv);
 
 /** Environment handlers */
 char *_getenv(char *envy);
+int _setenv(char *envy, char *newValue, int op);
 
 /** Strings */
 int _strlen(char *string);

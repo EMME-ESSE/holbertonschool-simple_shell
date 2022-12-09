@@ -9,7 +9,7 @@
  */
 int fun_cd(char **argv)
 {
-	char *env = NULL, cwd[CWDBUFF], owd[CWDBUFF];
+	char *env = NULL, cwd[CWDBUFF], owd[CWDBUFF], *temp = NULL;
 
 	/*save the cwd, add this to main to call it only once */
 	getcwd(cwd, CWDBUFF);
@@ -28,12 +28,17 @@ int fun_cd(char **argv)
 	}
 	else if (_strcmp(argv[1], "-") == 0)
 	{
-		env = owd;
-		if (chdir(env) != 0)
+		temp = malloc(sizeof(owd));
+		_strcpy(temp, owd);
+		if (chdir(temp) != 0)
 		{
 			perror("44 Error");
+			printf("owd: %s\n", owd);
+			printf("temp: %s\n", temp);
+			free (temp);
 			return (-1);
 		}
+		free (temp);
 	}
 	else
 	{
@@ -48,6 +53,7 @@ int fun_cd(char **argv)
 		_strcpy(owd, cwd);
 		getcwd(cwd, CWDBUFF);
 	}
+	printf("cwd: %s\n owd: %s\n", cwd, owd);
 	return (0);
 }
 

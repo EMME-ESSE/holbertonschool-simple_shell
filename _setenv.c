@@ -16,16 +16,15 @@ int _setenv(char *envy, char *newValue, int op)
 	char *new_value = NULL;
 
 	for (envSize = 0; envy[envSize] != '\0'; envSize++)
-		;/** Get the index of the environment variable we want to modify */
+		;
 	for (i = 0; environ[i] != NULL; i++)
 		if (strncmp(environ[i], envy, envSize) == 0)
-		{
+		{ /** Get the index of the environment variable we want to modify */
 			index = i;
 			break;
 		}
 	if (index == -1)
-	{	/** If the variable was not found, print error */
-		fprintf(stderr, "Error: Value not found\n");
+	{	/** If the variable was not found, just return */
 		return (-1);
 	}
 	if (op == 1)

@@ -27,6 +27,7 @@ int fun_cd(char **argv)
 	}
 	else if (_strcmp(argv[1], "-") == 0)
 	{
+		/** _setenv("OLDPWD=", "/root", 1); gotta work on this*/
 		if (chdir(owd) != 0)
 		{
 			perror("Error");

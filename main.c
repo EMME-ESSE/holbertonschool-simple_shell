@@ -24,7 +24,7 @@ int main(int ac, char **argv)
 	{
 		printf("%s", prompt);
 		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, " ", 1);
+			write(STDOUT_FILENO, "\n", 1);
 		chars_n = getline(&line1, &n, stdin);
 	        /* check if the getline function failed or user use CTRL + D */
 		if (chars_n == -1)

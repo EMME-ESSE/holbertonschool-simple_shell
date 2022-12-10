@@ -9,6 +9,8 @@
  * Return: 0 on success, -1 on failure.
  * Description: Warning, this is dangerous, just use the normal set env
  * I just created this function in order to change $OLDPWD
+ * Do NOT try to free an *environ pointer without modifying it first.
+ * It will crash your program, or worse
  */
 int _setenv(char *envy, char *newValue, int op)
 {
@@ -20,7 +22,7 @@ int _setenv(char *envy, char *newValue, int op)
 	for (valSize = 0; newValue[valSize] != '\0'; valSize++)
 		;
 	for (i = 0; environ[i] != NULL; i++)
-		if (strncmp(environ[i], envy, envSize) == 0)
+		if (_strncmp(environ[i], envy, envSize) == 0)
 		{
 			index = i;
 			break;

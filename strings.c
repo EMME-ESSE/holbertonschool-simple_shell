@@ -19,7 +19,7 @@ int _strlen(char *string)
  *   * @src: The source string.
  *   * @n: The maximum number of bytes to copied from src.
  *   * Return: A pointer to the resulting dest.
-**/
+ **/
 char *_strncpy(char *dest, char *src, int n)
 {
 	int index = 0, src_len = 0;
@@ -58,13 +58,47 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
+ * _strcut - attempts to cut s1 chars from string s2
+ *
+ * @s1: chars to remove
+ * @s2: string to remove chars from
+ *
+ * Return: s1 - s2;
+ */
+char *_strcut(char *s1, char *s2)
+{
+	int a = 0, i = 0;
+	char *arr = NULL;
+
+	while (s1[a] == s2[a])
+	{
+		if (s1[a] == '\0' || s2[a] == '\0')
+			break;
+		a++;
+	}
+	if (s1[a] == '\0' && s2[a] == '\0')
+	{
+		return ('\0');
+	}
+	else
+	{
+		arr = malloc(CWDBUFF);
+		while (s2[a] != '\0')
+		{
+			arr[i++] = s2[a++];
+		}
+	}
+	return (arr);
+}
+
+/**
  *    _strncat - Concatenates two strings using at most
  *    an inputted number of bytes from src.
  *    * @dest: The string to be appended.
  *    * @src: The string to be appended to dest.
  *    * @n: The number of bytes from src to be appended to dest.
  *    * Return: A pointer to the resulting dest.
-**/
+ **/
 char *_strncat(char *dest, char *src, int n)
 {
 	int index = 0, dest_len = 0;

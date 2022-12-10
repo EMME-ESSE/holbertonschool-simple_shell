@@ -2,4 +2,6 @@ make sure getenv has no memory leaks
 
 update pwd and oldpwd on cd, also make sure cd commands work
 
-Replace strings for strings on strings.c
+Merge the getenvbranch branch when its ready
+Fix the memory leaks from main.c
+Maybe split main.c into files

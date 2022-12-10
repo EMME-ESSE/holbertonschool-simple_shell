@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define CWDBUFF 128
 #define COMBUFF 128
 #define PATBUFF 256
 
@@ -13,6 +14,8 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 
+extern char **environ;
+
 /** Shell functions */
 int execmd(char **argv);
 int __launch(char **argv);
@@ -22,11 +25,15 @@ int fun_exit(char **argv);
 
 /** Environment handlers */
 char *_getenv(char *envy);
+int _setenv(char *envy, char *newValue, int op);
 
 /** Strings */
 int _strlen(char *string);
 char *_strncpy(char *dest, char *src, int n);
 int _strcmp(char *s1, char *s2);
 char *_strncat(char *dest, char *src, int n);
+char *_strcut(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
 
 #endif

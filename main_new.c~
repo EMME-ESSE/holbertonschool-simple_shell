@@ -12,7 +12,6 @@ int main(int ac, char **argv)
 	int i, check;
 	(void)ac;
 
-    /* Create a loop for the shell's prompt */
 	while (1)
 	{
 		printf("%s", prompt);
@@ -27,7 +26,7 @@ int main(int ac, char **argv)
 		}
        	 /* allocate space for a copy of the input */
 		line2 = malloc(sizeof(char) * chars_n + 1);
-		if (!line2)
+		if (line2 == NULL)
 		{
 			perror("Memory allocation error");
 			free(line1);
@@ -43,7 +42,7 @@ int main(int ac, char **argv)
 		}
 		num_tokens++;
 		argv = malloc(sizeof(char *) * num_tokens + 1);
-		if (!argv)
+		if (argv == NULL)
 		{
 			perror("Memory allocation error");
 			free(line1);
@@ -67,13 +66,12 @@ int main(int ac, char **argv)
         	check = __launch(argv);
 		for (; i >= 0; i--)
 			free(argv[i]);
-		free(argv);
+		free(line1);
 		free(line2);
-		if (check == 4 || check == 5)
-		{
-			free(line1);
+		if (check == 4)
 			exit(EXIT_SUCCESS);
-		}
+		if (check == 5)
+			exit(EXIT_FAILURE);
 	}
 	return (0);
 }

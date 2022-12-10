@@ -30,16 +30,16 @@ int execmd(char **argv)
 		{/**check if program is in any of the PATHs */
 			for (i = 0; i < COMBUFF; i++)
 				newpath[i] = 0;
-			strcpy(newpath, *pathz); /**build path */
-			strcat(newpath, "/");
-			strcat(newpath, argv[0]); /**add arg and exec */
+			_strcpy(newpath, *pathz); /**build path */
+			_strcat(newpath, "/");
+			_strcat(newpath, argv[0]); /**add arg and exec */
 			execve((const char *)newpath, argv, NULL);
 			*pathz = strtok(NULL, ":"); /**get next PATH if exec failed*/
 			if (!*pathz) /**if no path left, throw error*/
 				break;
 		}
 		perror("Error");
-		exit(EXIT_FAILURE);
+		return(5);
 	}
 	else if (pid < 0)
 		perror("Error");

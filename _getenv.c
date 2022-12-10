@@ -8,14 +8,13 @@
  */
 char *_getenv(char *envy)
 {
-    int i = 0;
-    extern char **environ;
+	int i = 0;
 
-    while (environ[i++])
-	    if (_strcmp(environ[i], envy) == '=')
-		    break;
-	    else if (environ[i] == NULL)
-		    perror("Error");
+	while (environ[i++])
+		if (_strcmp(environ[i], envy) == '=')
+			break;
+		else if (environ[i] == NULL)
+			perror("Error");
 
-    return (environ[i]);
+	return (environ[i]);
 }

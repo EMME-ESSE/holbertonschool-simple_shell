@@ -30,7 +30,7 @@ int __launch(char **argv)
 
 	for (i = 0; i < funCnt; i++)
 	{/** compares argument to fun names */
-		if (strcmp(argv[0], builtin_str[i]) == 0)
+		if (_strcmp(argv[0], builtin_str[i]) == 0)
 		{/** executes the fun */
 			return ((*builtin_func[i])(argv));
 		}

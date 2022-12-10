@@ -3,7 +3,7 @@
  * _setenv - attempts to set an env variable
  *
  * @envy: variable to set, I.E. "PWD="
- * @newValue: New value to store
+ * @newvalue: New value to store
  * @op: whether to allocate or free the pointer
  *
  * Return: 0 on success, -1 on failure.
@@ -12,24 +12,24 @@
  */
 int _setenv(char *envy, char *newValue, int op)
 {
-	int i, envSize, index = -1;
+	int i, envSize, valSize, index = -1;
 	char *new_value = NULL;
 
 	for (envSize = 0; envy[envSize] != '\0'; envSize++)
 		;
+	for (valSize = 0; newValue[valSize] != '\0'; valSize++)
+		;
 	for (i = 0; environ[i] != NULL; i++)
 		if (strncmp(environ[i], envy, envSize) == 0)
-		{ /** Get the index of the environment variable we want to modify */
+		{
 			index = i;
 			break;
 		}
 	if (index == -1)
-	{	/** If the variable was not found, just return */
-		return (-1);
-	}
+		return(-1);
 	if (op == 1)
 	{	/** Modify the value of the environment variable */
-		envSize = (sizeof(envy) + sizeof(newValue)) * sizeof(char);
+		envSize = (envSize + valSize) * sizeof(char);
 		if (!new_value)
 			new_value = malloc(envSize);
 		else

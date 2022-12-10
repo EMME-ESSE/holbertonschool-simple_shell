@@ -1,15 +1,22 @@
 #include "main.h"
-
+/**
+ * main - The entry point and main handler
+ *
+ * @ac: Argument count
+ * @argv: argument variables
+ *
+ * return: 0 on success, -1 on failure.
+ */
 int main(int ac, char **argv)
 {
 	char *prompt = "(Hshell) $ ";
 	char *line1 = NULL, *line2 = NULL;
 	size_t n = 0;
-	ssize_t chars_n;
-	const char *delim = " \"\t:,;.\n";
+	ssize_t chars_n = 0;
+	const char *delim = " \"\t:,;\n";
 	int num_tokens = 0;
-	char *token;
-	int i, check;
+	char *token = NULL;
+	int i, check, bol_free_env = 0;
 	(void)ac;
 
     /* Create a loop for the shell's prompt */
@@ -17,13 +24,16 @@ int main(int ac, char **argv)
 	{
 		printf("%s", prompt);
 		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "\n", 1);
+			write(STDOUT_FILENO, " ", 1);
 		chars_n = getline(&line1, &n, stdin);
 	        /* check if the getline function failed or user use CTRL + D */
 		if (chars_n == -1)
 		{
 			printf("Exiting Hshell...\n");
-			return (-1);
+			chars_n = 4;
+			n = 4;
+			free(line1);
+			line1 = _strcut("F", "Fexit");
 		}
        	 /* allocate space for a copy of the input */
 		line2 = malloc(sizeof(char) * chars_n + 1);
@@ -69,8 +79,12 @@ int main(int ac, char **argv)
 			free(argv[i]);
 		free(argv);
 		free(line2);
+		if (check == 3)
+			bol_free_env = 1;
 		if (check == 4 || check == 5)
 		{
+			if (bol_free_env == 1)
+				_setenv("OLDPWD=", "dummy", 0);
 			free(line1);
 			exit(EXIT_SUCCESS);
 		}

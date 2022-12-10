@@ -3,7 +3,7 @@
  * _setenv - attempts to set an env variable
  *
  * @envy: variable to set, I.E. "PWD="
- * @newvalue: New value to store
+ * @newValue: New value to store
  * @op: whether to allocate or free the pointer
  *
  * Return: 0 on success, -1 on failure.
@@ -26,7 +26,7 @@ int _setenv(char *envy, char *newValue, int op)
 			break;
 		}
 	if (index == -1)
-		return(-1);
+		return (-1);
 	if (op == 1)
 	{	/** Modify the value of the environment variable */
 		envSize = (envSize + valSize) * sizeof(char);

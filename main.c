@@ -19,7 +19,7 @@ int main(int ac, char **argv)
 	int i, check, bol_free_env = 0;
 	(void)ac;
 
-    /* Create a loop for the shell's prompt */
+	/* Create a loop for the shell's prompt */
 	while (1)
 	{
 		printf("%s", prompt);
@@ -35,7 +35,7 @@ int main(int ac, char **argv)
 			free(line1);
 			line1 = _strcut("F", "Fexit");
 		}
-       	 /* allocate space for a copy of the input */
+		/* allocate space for a copy of the input */
 		line2 = malloc(sizeof(char) * chars_n + 1);
 		if (!line2)
 		{
@@ -44,7 +44,7 @@ int main(int ac, char **argv)
 			return (-1);
 		}
 		_strcpy(line2, line1);
-               /* splits the array and calculates the total number of tokens */
+		/* splits the array and calculates the total number of tokens */
 		token = strtok(line1, delim);
 		while (token != NULL)
 		{
@@ -60,7 +60,7 @@ int main(int ac, char **argv)
 			free(line2);
 			return(-1);
 		}
-        /* Store each token in argv */
+		/* Store each token in argv */
 		token = strtok(line2, delim);
 		for (i = 0; token != NULL; i++)
 		{

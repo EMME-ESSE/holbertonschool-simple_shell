@@ -57,6 +57,6 @@ int fun_cd(char **argv)
 int fun_exit(char **argv)
 {
 	if (argv)
-		return(4);
-	return(4);
+		return (4);
+	return (4);
 }

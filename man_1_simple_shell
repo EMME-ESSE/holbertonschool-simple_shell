@@ -1,46 +1,67 @@
-.\" Manpage for shell.
-.TH shell               Linux programmer's Manual               shell
+.TH SIMPLE_SHELL (1)
+
 .SH NAME
-shell \- command basic shell.
+.B
+Simple shell (./hsh)
+- A basic version of Unix system shell.
+
 .SH SYNOPSIS
-#include "main.h"
-
-int _printf(const char *format, ...)
+#include <stdlib.h> 
+.PP
+#include <stdio.h>
+.PP
+#include <string.h>
+.PP
+#include <unistd.h>
+.PP
+#include <sys/stat.h>
+.PP
+#include <sys/stat.h>
+.PP
+#include <sys/wait.h> 
+.PP
+.B
 .SH DESCRIPTION
-The function _printf produces output according to a format to stdout.
+- The simple shell project is the final project of the first trimester of the career Software Engineering at Holberton School. to create it we search a lot of information on the internet and apply our knoledge about C programming language.
+.PP
+- Shell is a programm that provides an interface to the Unix command interpetre system.
+.PP
+- Takes the user input entered through the keyboard and displays the output in the screen working with the standard input.
 
-This function writes the output under the control of a format string that specifies how subsequent arguments are converted for output.
+.SH SIMPLE SHELL FUNCTIONALITIES
+-  Display a prompt and wait for the user to type a command. A command line always ends with a new line
+.sp 1
+-  The prompt is displayed again each time a command has been executed
+.sp 1
+-  If a command cannot be found, it prints an error message and displays the prompt again
+.sp 1
+-  Handle errors
+.sp 1
+-  Handle the “end of file” condition (Ctrl+D)
+.sp 1
+-  Handle command lines with arguments
+.sp 1
+-  Handle the PATH
+.sp 1
+-  Handle the exit, the cd and env built-in
+.PP
+Compile the files in the following way:
+.PP
+.B
+ - gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-.SH Conversion specifiers
-%c The argument is converted to char, and the resulting character is written. 
-.TP
-%s The argument is expected to be a pointer to an array of character type (pointer to a string).  
-.TP
-%% It prints one "%".
-.TP
-%d, %i The int argument is converted to signed decimal.
-.SH RETURN VALUE
-Upon successful return, these function return the number of character printed.
-.TP
-If an output error is encountered, -1 is returned.
-.SH EXAMPLES
-To print an int:
+.SH USAGE EXAMPLES
+To activate 
+interactive mode
+write "./hsh". The prompt will be displayed. You can write commands and will be executed by the simple shell. Examples: "pwd"
 
-#include "main.h"
+non-interactive shell
+write "echo (
+.I
+command to be executed
+) | ./hsh". EXAMPLES: "echo "Hello!" | ./hsh" or "echo "ls -ltr | ./hsh"
 
-int a = 1;
-.TP
-_printf("%d", a);
-.TP
-.TP
-To print a string:
-.TP
-#include "main.h"
-.TP
-char *str = "Hello";
-.TP
-_printf(%s, str);
-
-.SH AUTHORS
-Written by Adrian Belen and Matias Mancini.
-
+.SH MORE COMMANDS
+atoi (man 3 atoi), close (man 2 close), execve (man 2 execve), exit (man 3 exit), fork (man 2 fork), free (man 3 free), getline (man 3 getline), isatty (man 3 isatty), malloc (man 3 malloc), open (man 2 open), perror (man 3 perror), stat (__xstat) (man 2 stat), strcat (man 3 strcat), strcmp (man 3 strcmp), strdup (man 3 strdup), strtok (man 3 strtok), va_arg (man 2 va_arg), va_end (man 2 va_end), va_start (man 2 va_start), wait (man 2 wait)
+"December 2022"
+<matimancini@gmail.com> <e.b.galvan@hotmail.com>

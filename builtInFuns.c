@@ -4,7 +4,7 @@
  *
  * @argv: argument for chdir
  *
- * Return: 0 on success, -1 on error.
+ * Return: 3 on success, -1 on error.
  */
 int fun_cd(char **argv)
 {
@@ -27,7 +27,7 @@ int fun_cd(char **argv)
 	}
 	else if (_strcmp(argv[1], "-") == 0)
 	{
-		/** _setenv("OLDPWD=", "/root", 1); gotta work on this*/
+		_setenv("OLDPWD=", cwd, 1);
 		if (chdir(owd) != 0)
 		{
 			perror("Error");
@@ -44,7 +44,7 @@ int fun_cd(char **argv)
 		}
 	}
 	free(owd);
-	return (0);
+	return (3);
 }
 
 /**
@@ -57,6 +57,6 @@ int fun_cd(char **argv)
 int fun_exit(char **argv)
 {
 	if (argv)
-		exit(EXIT_SUCCESS);
-	exit(EXIT_SUCCESS);
+		return(4);
+	return(4);
 }

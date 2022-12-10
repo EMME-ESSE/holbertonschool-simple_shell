@@ -48,3 +48,26 @@ char *_strcat(char *dest, char *src)
 	a = dest;
 	return (a);
 }
+
+/**
+ * _strncmp - compares two strings
+ *
+ * @s1: String 1
+ * @s2: String 2
+ *
+ * Return: 0 if equal, +n || -n if not.
+ */
+int _strncmp(char *s1, char *s2, int n)
+{
+	while (n > 0 && *s1 != '\0' && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	if (n == 0)
+	{
+		return (0);
+	}
+	return (*s1 - *s2);
+}

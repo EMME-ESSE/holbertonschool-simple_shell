@@ -39,7 +39,7 @@ int execmd(char **argv)
 				break;
 		}
 		perror("Error");
-		exit(EXIT_FAILURE);
+		return(5);
 	}
 	else if (pid < 0)
 		perror("Error");

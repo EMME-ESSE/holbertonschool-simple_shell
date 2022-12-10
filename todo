@@ -1,5 +1,0 @@
-update pwd and oldpwd on cd, also make sure cd commands work
-
-Replace strings for strings on strings.c except strtok
-
-maybe cut main.c into parts

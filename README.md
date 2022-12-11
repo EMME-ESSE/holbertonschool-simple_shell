@@ -1,4 +1,4 @@
-Shell project for [Holberton School](https://holbertonschool.uy)
+#Shell project for [Holberton School](https://holbertonschool.uy)
 
 Working team:
 
@@ -43,6 +43,7 @@ The program works like the ````sh```` shell with all the functionalities that it
 ## 🔹 Tests
 > Interactive shell
 ![Tests](https://user-images.githubusercontent.com/17550413/206456780-a3344994-b696-4cc3-9043-e4606145ae92.png)
+
 > Non interactive shell
 ![Tests](https://user-images.githubusercontent.com/17550413/206498091-76b54df0-7064-481f-b0c5-48edaa98c0bc.png)
 

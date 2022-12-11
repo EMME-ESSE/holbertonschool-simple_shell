@@ -38,11 +38,15 @@ int execmd(char **argv)
 			if (!*pathz) /**if no path left, throw error*/
 				break;
 		}
-		perror("Error");
+		fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+		perror("");
 		return(5);
 	}
 	else if (pid < 0)
-		perror("Error");
+	{
+		fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+		perror("");
+	}
 	else
 	{ /** use a do here so it runs once before checking */
 		do {

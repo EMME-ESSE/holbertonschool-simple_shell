@@ -38,7 +38,7 @@ int _setenv(char *envy, char *newValue, int op)
 			new_value = realloc(new_value, envSize);
 		if (!new_value)
 		{
-			fprintf(stderr, "Failed to allocate memory to heap");
+			fprintf(stderr, "bash: Failed to allocate memory to heap\n");
 			return (-1);
 		}
 		_strcpy(new_value, envy);

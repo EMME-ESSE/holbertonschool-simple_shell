@@ -18,7 +18,8 @@ int fun_cd(char **argv)
 		env = _strcut("HOME=", _getenv("HOME"));
 		if (chdir(env) != 0)
 		{
-			perror("Error");
+			fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+			perror("");
 			free(env);
 			return (-1);
 		}
@@ -30,21 +31,25 @@ int fun_cd(char **argv)
 		_setenv("OLDPWD=", cwd, 1);
 		if (chdir(owd) != 0)
 		{
-			perror("Error");
+			fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+			perror("");
 			free(owd);
 			return (-1);
 		}
+		free(owd);
+		return(3);
 	}
 	else
 	{
 		if (chdir(argv[1]) != 0)
 		{
-			perror("Error");
+			fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+			perror("");
 			return (-1);
 		}
 	}
 	free(owd);
-	return (3);
+	return (0);
 }
 
 /**

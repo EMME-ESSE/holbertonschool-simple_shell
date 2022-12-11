@@ -14,7 +14,10 @@ char *_getenv(char *envy)
 		if (_strcmp(environ[i], envy) == '=')
 			break;
 		else if (environ[i] == NULL)
-			perror("Error");
+		{
+			fprintf(stderr, "bash: %s: ", envy);
+			perror("");
+		}
 
 	return (environ[i]);
 }

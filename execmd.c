@@ -15,7 +15,6 @@
 int execmd(char **argv)
 {
 	pid_t pid;
-	/**This var will check if child is finished to call exit*/
 	int status;
 	char *rawPathz = NULL, *pathz[PATBUFF], newpath[COMBUFF];
 	int i;
@@ -24,7 +23,6 @@ int execmd(char **argv)
 
 	if (pid == 0)
 	{/**get $PATH and tokenize */
-		execve(*argv, argv, NULL);
 		rawPathz = _getenv("PATH");
 		*pathz = strtok(rawPathz, ":");
 		for (; *pathz != NULL ;)
@@ -34,11 +32,14 @@ int execmd(char **argv)
 			_strcpy(newpath, *pathz); /**build path */
 			_strcat(newpath, "/");
 			_strcat(newpath, argv[0]); /**add arg and exec */
-			execve((const char *)newpath, argv, NULL);
+			if (access((const char *)newpath, R_OK) != -1)
+				execve((const char *)newpath, argv, NULL);
 			*pathz = strtok(NULL, ":"); /**get next PATH if exec failed*/
 			if (!*pathz) /**if no path left, throw error*/
 				break;
 		}
+		if (access(*argv, R_OK) != -1)
+			execve(*argv, argv, NULL);
 		fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
 		perror("");
 		return(5);

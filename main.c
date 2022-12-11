@@ -13,7 +13,7 @@ int main(int ac, char **argv)
 	char *line1 = NULL, *line2 = NULL;
 	size_t n = 0;
 	ssize_t chars_n = 0;
-	const char *delim = " \"\t:,;\n";
+	const char *delim = " \'`&#\"\t:,;\n";
 	int num_tokens = 0;
 	char *token = NULL;
 	int i, check, bol_free_env = 0;

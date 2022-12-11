@@ -63,7 +63,7 @@ int _strcmp(char *s1, char *s2)
  * @s1: chars to remove
  * @s2: string to remove chars from
  *
- * Return: s1 - s2;
+ * Return: NULL on error
  */
 char *_strcut(char *s1, char *s2)
 {

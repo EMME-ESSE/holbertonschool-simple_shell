@@ -65,3 +65,23 @@ int fun_exit(char **argv)
 		return (4);
 	return (4);
 }
+
+/**
+ * fun_env - prints the env vars
+ *
+ * @argv: catches last argument
+ *
+ * Return: 0 success
+ */
+int fun_env(char **argv)
+{
+	char **env = environ;
+
+	while (*env) {
+		printf("%s\n", *env);
+		env++;
+	}
+	if (argv)
+		return (0);
+	return (0);
+}

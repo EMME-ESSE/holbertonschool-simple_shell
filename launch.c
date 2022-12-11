@@ -12,12 +12,14 @@ int __launch(char **argv)
 
 	char *builtin_str[] = {
 		"cd",
-		"exit"
+		"exit",
+		"env"
 	};
 
 	int (*builtin_func[])(char **) = {
 		&fun_cd,
-		&fun_exit
+		&fun_exit,
+		&fun_env
 	};
 
 	/** this just a counter, counts the n of builtins*/

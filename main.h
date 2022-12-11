@@ -22,6 +22,7 @@ int __launch(char **argv);
 /** Built-in functions */
 int fun_cd(char **argv);
 int fun_exit(char **argv);
+int fun_env(char **argv);
 
 /** Environment handlers */
 char *_getenv(char *envy);

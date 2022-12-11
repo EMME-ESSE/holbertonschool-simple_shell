@@ -24,6 +24,7 @@ int execmd(char **argv)
 
 	if (pid == 0)
 	{/**get $PATH and tokenize */
+		execve(*argv, argv, NULL);
 		rawPathz = _getenv("PATH");
 		*pathz = strtok(rawPathz, ":");
 		for (; *pathz != NULL ;)
@@ -53,6 +54,5 @@ int execmd(char **argv)
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
-	free(rawPathz);
 	return (0);
 }

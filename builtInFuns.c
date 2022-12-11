@@ -57,7 +57,7 @@ int fun_cd(char **argv)
  *
  * @argv: catches last argument
  *
- * Return: nothing
+ * Return: 4 to exit success
  */
 int fun_exit(char **argv)
 {

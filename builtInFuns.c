@@ -18,7 +18,7 @@ int fun_cd(char **argv)
 		env = _strcut("HOME=", _getenv("HOME"));
 		if (chdir(env) != 0)
 		{
-			fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+			fprintf(stderr, "bash: %s: ", *argv);
 			perror("");
 			free(env);
 			return (-1);

@@ -40,7 +40,7 @@ int main(int ac, char **argv)
 		line2 = malloc(sizeof(char) * chars_n + 1);
 		if (!line2)
 		{
-			fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+			fprintf(stderr, "bash: %s: ", *argv);
 			perror("");
 			free(line1);
 			return (-1);
@@ -57,7 +57,7 @@ int main(int ac, char **argv)
 		argv = malloc(sizeof(char *) * num_tokens + 1);
 		if (!argv)
 		{
-			fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+			fprintf(stderr, "bash: %s: ", *argv);
 			perror("");
 			free(line1);
 			free(line2);
@@ -70,7 +70,7 @@ int main(int ac, char **argv)
 			argv[i] = malloc(sizeof(char) * _strlen(token) + 1);
 			if (argv[i] == NULL)
 			{
-				fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+				fprintf(stderr, "bash: %s: ", *argv);
 				perror("");
 				return(-1);
 			}

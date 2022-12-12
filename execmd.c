@@ -40,13 +40,12 @@ int execmd(char **argv)
 		}
 		if (access(*argv, R_OK) != -1)
 			execve(*argv, argv, NULL);
-		fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
-		perror("");
+		fprintf(stderr, "bash: %s: command not found\n", *argv);
 		return(5);
 	}
 	else if (pid < 0)
 	{
-		fprintf(stderr, "bash: %s: %s: ", *argv,  argv[1]);
+		fprintf(stderr, "bash: %s: ", *argv);
 		perror("");
 	}
 	else

@@ -16,15 +16,17 @@ int main(int ac, char **argv)
 	const char *delim = " \'`&#\"\t:,;\n";
 	int num_tokens = 0;
 	char *token = NULL;
-	int i, check, bol_free_env = 0;
+	int i, check, bol_free_env = 0, cmd_interactive;
 	(void)ac;
 
-	/* Create a loop for the shell's prompt */
+	if (isatty(0))
+		cmd_interactive = 1; /** Standard input is a terminal */
+	else
+		cmd_interactive = 0; /** Standard input is not a terminal */
 	while (1)
 	{
-		printf("%s", prompt);
-		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "", 1);
+		if (cmd_interactive)
+			printf("%s", prompt);
 		chars_n = getline(&line1, &n, stdin);
 	        /* check if the getline function failed or user use CTRL + D */
 		if (chars_n == -1)

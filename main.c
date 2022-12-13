@@ -1,5 +1,12 @@
 #include "main.h"
-
+/**
+ * main - The entry point and main handler
+ *
+ * @ac: Argument count
+ * @argv: argument variables
+ *
+ * return: 0 on success, -1 on failure.
+ */
 int main(int ac, char **argv)
 {
 	char *prompt = "(Hshell) $ ";
